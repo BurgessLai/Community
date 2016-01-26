@@ -1,0 +1,29 @@
+{
+  "name": "Community",
+  "description": "Mean-Community",
+  "main": "",
+  "authors": [
+    "Burgess <526543008@qq.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "mean"
+  ],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "homepage": "index.ejs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular-ui-router": "~0.2.17"
+  }
+}
