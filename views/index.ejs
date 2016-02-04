@@ -21,12 +21,14 @@
         <div class="collapse navbar-collapse" id="navbar_data">
          <ul class="nav navbar-nav">
             <li><a href="">首页</a></li>
-            <li><a href="">发布话题</a></li>
-            <li><a href="">我的文章</a></li>
+            <li><a href="" ng-show="authenticated">发布话题</a></li>
+            <li><a href="" ng-show="authenticated">我的文章</a></li>
          </ul> 
          <ul class="nav navbar-nav navbar-right">
-           <li><a href="">登陆</a></li>
-           <li><a href="">注册</a></li>
+           <li><a href="#/login" ng-hide="authenticated">登陆</a></li>
+           <li><a href="#/signup" ng-hide="authenticated">注册</a></li>
+           <li><p ng-show="authenticated">{{current_user}}</p></li>
+           <li><a href="#" ng-click="signout()" ng-show="authenticated">退出</a></li>
          </ul>   
          <form class="navbar-form navbar-right" role="search">
           <div class="form-group">
@@ -41,7 +43,8 @@
       <div ui-view></div>
     </div>
   </body>
-  <script src="angular/angular.min.js"></script>
-  <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="angular/angular.js"></script>
+  <script src="angular-resource/angular-resource.js"></script>
+  <script src="angular-ui-router/release/angular-ui-router.js"></script>
   <script src="javascripts/Community.js"></script>
 </html>
