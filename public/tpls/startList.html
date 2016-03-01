@@ -1,0 +1,15 @@
+<table table-striped>
+    <tbody>
+        <tr>
+            <td>明星排行榜</td>
+        </tr>
+        <tr>
+            <td>粉丝数</td>
+            <td>名字</td>
+        </tr>
+        <tr ng-repeat="start in starts | limitTo: 10">
+            <td>{{start.fans}}</td>
+            <td>{{start.username}}</td>
+        </tr>
+    </tbody>
+</table>

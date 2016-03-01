@@ -25,8 +25,10 @@
             <li><a href="" ng-show="authenticated">我的文章</a></li>
          </ul> 
          <ul class="nav navbar-nav navbar-right">
+            
            <li><a href="#/login" ng-hide="authenticated">登陆</a></li>
            <li><a href="#/signup" ng-hide="authenticated">注册</a></li>
+           <li><a href="#/pubArticle" ng-show="authenticated">发布文章</a></li>
            <li><p ng-show="authenticated">{{current_user}}</p></li>
            <li><a href="#" ng-click="signout()" ng-show="authenticated">退出</a></li>
          </ul>   
