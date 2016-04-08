@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var flash = require('express-flash');
 var passport = require('passport');
 
 //initialize mongoose
@@ -15,11 +16,12 @@ mongoose.connect('mongodb://localhost/Community');
 var authenticate = require('./routes/authenticate')(passport);
 var initPassport = require('./routes/passport-init');
 initPassport(passport);
+//CRUD for articles and users
+var articleAPI = require('./routes/articleAPI');
+var userAPI = require('./routes/userAPI');
 
-var articleCRUD = require('./routes/articleCRUD');
-var userCRUD = require('./routes/userCRUD');
+
 var index = require('./routes/index');
-
 var app = express();
 
 // view engine setup
@@ -34,16 +36,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+//use to  keep login
 app.use(session({
   secret: 'keyboard cat'
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+//return message for passport 
+app.use(flash());
+
 
 app.use('/', index);
 app.use('/auth', authenticate);
-app.use('/articleCRUD', articleCRUD);
-app.use('/userCRUD', userCRUD);
+app.use('/articleAPI', articleAPI);
+app.use('/userAPI', userAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

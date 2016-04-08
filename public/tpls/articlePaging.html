@@ -1,14 +1,32 @@
-<div>	
-	<ul ng-show="conf.totalItems > 0">
-		<li ng-hide="conf.currentPage == 1" ng-click="prevPage()">
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <td><a href="#" ng-click="showAll()">全部</a></td>
+            <td><a href="#" ng-click="showQuality()">精品</a></td>
+        </tr>
+        <tr>
+            <td>作者</td>
+            <td>标题</td>
+            <td>创建时间</td>
+        </tr>
+        <tr ng-repeat="article in articles | limitTo: 10">   
+            <td>{{article.author}}</td>
+            <td><a ui-sref="showArticle({article: article})">{{article.title}}</a></td>
+            <td>{{article.created_at | date: shortDate}}</td>         
+        </tr>      
+    </tbody>
+</table>
+<div class="page-list">	
+	<ul class="pagination" ng-show="totalItems > 0">
+		<li ng-hide="currentPage == 1" ng-click="prevPage()">
 			<span>&laquo;</span>
 		</li>
 		<li ng-repeat="item in pageList track by $index" ng-click="changeCurrentPage(item)">
 			<span>{{ item }}</span>	
 		</li>
-		<li ng-hide="conf.currentPage == conf.numberOfPages" ng-click="nextPage()">
+		<li ng-hide="currentPage == numberOfPages" ng-click="nextPage()">
 			<span>&raquo;</span>
 		</li>
 	</ul>
-	<div  ng-show="conf.totalItems <= 0">暂无数据</div>
+	<div  ng-show="totalItems <= 0">无文章</div>
 </div>

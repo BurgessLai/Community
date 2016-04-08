@@ -1,15 +1,15 @@
-<table table-striped>
+<table class="table table-striped">
     <tbody>
         <tr>
-            <td>明星排行榜</td>
+            <p class="text-center">明星排行榜</p>
         </tr>
         <tr>
             <td>粉丝数</td>
             <td>名字</td>
         </tr>
         <tr ng-repeat="start in starts | limitTo: 10">
-            <td>{{start.fans}}</td>
-            <td>{{start.username}}</td>
+            <td>{{start.fansNumber}}</td>
+            <td><a ui-sref="showUser({username: start.username})">{{start.username}}</a></td>
         </tr>
     </tbody>
 </table>

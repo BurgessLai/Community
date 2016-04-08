@@ -3,14 +3,14 @@
     <h1><small>注册</small></h1>
   </div>
   <p class="text-warning">{{error_message}}</p>
-  <form class="form-auth" ng-submit="register()">
+  <form class="form-auth" ng-submit="signup()">
     <div class="form-group">
       <label for="username">用户名</label>
-      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="user.username">
+      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="user.username" maxlength="12">
     </div>
     <div class="form-group">
       <label for="password">密码</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password" maxlength="12">
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-primary">注册</button>

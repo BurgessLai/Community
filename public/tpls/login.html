@@ -1,19 +1,19 @@
- <div class="col-xs-offset-4 col-xs-4">
-  <div class="text-center">
-    <h1><small>登陆</small></h1>
-  </div>
-  <p class="text-warning">{{error_message}}</p>
-  <form class="form-auth" ng-submit="login()">
-    <div class="form-group">
-      <label for="username">用户名</label>
-      <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="user.username">
-    </div>
-    <div class="form-group">
-      <label for="password">密码</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
-    </div>
+<div class="col-xs-offset-4 col-xs-4">
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">登陆</button>
+        <h1><small>登陆</small></h1>
     </div>
-  </form>
+    <p class="text-warning">{{error_message}}</p>
+    <form class="form-auth" ng-submit="login()">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="user.username" maxlength="12">
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password" maxlength="12">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">登陆</button>
+        </div>
+    </form>
 </div>

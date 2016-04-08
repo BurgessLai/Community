@@ -1,7 +1,5 @@
 <div class="col-sm-9">
 	<input type="text" class="form-control" placeholder="标题" ng-model="article.title">
-	<label  class="col-sm-2 control-label">内容：</label>
-	<textarea class="form-control" rows="21" ng-model="article.content"></textarea>
-	<p class="text-warning">{{error_message}}</p>
+	<textarea class="form-control" rows="21" ng-model="article.content" placeholder="内容"></textarea>
 	<button type="button" class="btn btn-default" ng-click="saveArticle()">提交</button>
 </div>
